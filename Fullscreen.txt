@@ -1,0 +1,25 @@
+using UnityEngine;
+using System.Collections;
+
+public class Fullscreen : MonoBehaviour {
+	
+	public bool fullScreen = true;
+	public bool debug = false;
+	
+	// Use this for initialization
+	void Start () {
+
+		Screen.fullScreen = fullScreen;
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if(Input.GetKey(KeyCode.Escape))
+			Screen.fullScreen = !Screen.fullScreen;
+
+		if(debug)
+			Debug.Log("bool fullScreen: " + fullScreen.ToString());
+			Debug.Log("Screen.fullScreen: " + Screen.fullScreen);
+	}
+}
