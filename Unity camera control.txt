@@ -1,0 +1,37 @@
+using UnityEngine;
+using System.Collections;
+
+public class cameraControll : MonoBehaviour {
+
+	public float speed = 1;
+
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+		if(Input.GetKey(KeyCode.W))
+		transform.Translate (Vector3.forward * speed * Time.deltaTime);
+
+		if(Input.GetKey(KeyCode.S))
+		transform.Translate (Vector3.back * speed * Time.deltaTime);
+
+		if(Input.GetKey(KeyCode.A))
+			transform.Translate (Vector3.left * (speed + speed) * Time.deltaTime);
+
+		if(Input.GetKey(KeyCode.D))
+		transform.Translate (Vector3.right * (speed + speed) * Time.deltaTime);
+
+		if(Input.GetKey(KeyCode.LeftShift))
+			transform.Translate (Vector3.up * speed * Time.deltaTime);
+
+		if(Input.GetKey(KeyCode.LeftControl))
+			transform.Translate (Vector3.down * speed * Time.deltaTime);
+
+		if(Input.GetKey(KeyCode.E))
+			transform.Translate (Vector3. * speed * Time.deltaTime);
+	}
+}
