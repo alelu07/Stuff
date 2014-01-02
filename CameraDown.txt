@@ -1,0 +1,39 @@
+using UnityEngine;
+using System.Collections;
+
+public class CameraDown : MonoBehaviour {
+	public float startSpeed = 1f;
+	public float acceleration = 0.1f;
+	public float maxSpeed = 10f;
+	public bool debug = false;
+	private float speed = 0f;
+
+		// Use this for initialization
+		void Start () {
+
+			speed = startSpeed;
+
+		}
+		
+		// Update is called once per frame
+		void Update () {
+
+			transform.Translate (-Vector3.up * speed * Time.deltaTime);
+
+			speed += acceleration;
+			
+			speed = speed > maxSpeed ? maxSpeed : speed < -maxSpeed ? -maxSpeed : speed;
+
+			//Old code use for reference for easy understanding/modification of new code
+
+			//if (speed > maxSpeed)
+			//		speed = maxSpeed;
+			//else if (speed < -maxSpeed)
+			//		speed = -maxSpeed;
+
+			if (debug) {
+			Debug.Log("Delta V:  " + speed * Time.deltaTime);
+			Debug.Log("Speed:  " + speed);
+			}
+		}
+}
